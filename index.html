@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>给你的一封信</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- 星空层：不需要gif，Canvas更高级 -->
+  <canvas id="stars" aria-hidden="true"></canvas>
+
+  <!-- 全局背景层：JS 会在 intro/main 之间切换照片 -->
+  <div id="bgLayer" class="bg-layer" aria-hidden="true"></div>
+
+  <!-- 开场页：必须点一下才能播放音乐（浏览器规则） -->
+  <section id="intro" class="intro">
+    <div class="intro-card">
+      <h1>嗨，<span class="name">我的子粤大宝贝</span> 💗</h1>
+      <p>虽迟但到的情书，请大宝贝查阅 💗💗💗</p>
+      <p class="hint">点一下开启我们的宇宙 ✨✨✨</p>
+      <button id="enterBtn" class="btn" type="button">进入</button>
+      <p id="introTip" class="tip"></p>
+    </div>
+  </section>
+
+  <!-- 主页面 -->
+  <main id="main" class="main hidden">
+    <header class="topbar">
+      <div class="brand">我们的故事</div>
+
+      <div class="controls">
+        <button id="bgBtn" class="btn btn-ghost" type="button" aria-label="toggle background">🌌 星空：开</button>
+        <!-- <button id="letterBtn" class="btn btn-ghost" type="button" aria-label="open letter">✉️ 读信</button> -->
+        <button id="musicBtn" class="btn btn-ghost" type="button" aria-label="toggle music">🎵 音乐：开</button>
+        <button id="backHomeBtn" class="btn btn-ghost" type="button" aria-label="back home">← 返回</button>
+      </div>
+    </header>
+
+
+    <section class="hero">
+      <h2>我想把喜欢说得更认真一点。</h2>
+      <p>这是我笨拙但真诚的仪式感。</p>
+    </section>
+
+    <section class="section">
+      <h3>时间线</h3>
+      <ul class="timeline">
+        <li><span class="date">时间不详~</span> 很早就开始喜欢我的漂亮宝宝</li>
+        <li><span class="date">2025-01-01</span> 我们第一次一起跨年，我还没有名分，但看电影的时候我靠在你的腿上睡着了</li>
+        <li><span class="date">2025-01-15</span> 漂亮宝宝的生日，但我发烧了，答应你以后都陪你过生日，不知道你那天过得开不开心</li>
+        <li><span class="date">2025-02-16</span> 表白成功，我们恋爱了，真的很甜一点不腻</li>
+        <li><span class="date">2025-03-02</span> 我骑电动车把你摔着了，我很愧疚，我们晚上去了医院，我发现你比我更不怕疼，我们修养了好长一段时间，我们也开始算正式同居了</li>
+        <li><span class="date">2025-03-30</span> 应该算在一起后的第一次旅行吧？我去中关村学院面试，你自己逛商场，给你买了你最喜欢的梳子，我们住一个酒店，第一次见你的闺蜜，她给你买了花，我们给他买了小礼物和沙棘汁，逛了北京交通大学</li>
+        <li><span class="date">2025-04-03</span> 端午节我们两个单独游出去旅了，我们去了大同，第一次租车，不会开远光灯真的很好笑。我们逛了大同古城，云冈石窟，应县木塔，吃了很多特色小吃，在应县住了不想离开的漂亮酒店，这个时候妈妈还不知道我们在一起了，旅行的时候产生了矛盾，这是我们在一起的第一次吵架，我现在想起来真的很后悔，但是整体上开心会更多</li>
+        <li><span class="date">2025-04-14</span> 我要去广州出差，第一次留我们胆小宝宝在出租房里面，我去找了我弟，给你和妈妈买了烧腊烧鹅，下次想和你一起去广州</li>
+        <li><span class="date">2025-05-17</span> 我们第一次坐火车卧铺，是面对面的两个中铺，一起去青岛收拾我的行李，这真的是很神奇的体验，最讨厌坐火车的我慢慢的也没觉得那么讨厌了。我们租了车，去了海边，吃了我一直跟你念叨的小龙虾</li>
+        <li><span class="date">2025-05-22</span> 我要去天津大学面试，第二次留我们家宝宝独守空房了，我的胆小宝宝，不知道你有没有想我~</li>
+        <li><span class="date">2025-05-29</span> 初步确定复旦大学录取了，我很开心第一次去了蚌埠，吃了很多我觉得不太卫生的小吃，等你回来过端午节，虽然我大部分时间都在酒店里写本子</li>
+        <li><span class="date">2025-06-14</span> 我毕业离校了，我们退了水木清华的房子，你送我上车的时候哭了，我舍不得你。但我们一起拍了毕业照，吃了很多漂亮饭，我们要开始异地了</li>
+        <li><span class="date">2025-08-14</span> 异地后的第一次见面，我带了江西特产！和你闺蜜们去景德镇/上饶婺源旅行，我们吃了很好吃的牛骨，我们有抓住所有的时间间隙疯狂做</li>
+        <li><span class="date">2025-08-18</span> 紧接着第二次见面，你第一次来我家，我们也一起见了爷爷奶奶，他们都很喜欢你，每次打电话聊天都会提到你的近况，我也很喜欢跟他们分享和你的事情</li>
+        <li><span class="date">2025-08-25</span> 因为要照顾妈妈，而且我马上开学了，有点遗憾这一次没有陪着宝宝去住烟台的海景房，答应我下次我们自己去吧，烟台和青岛的海是不一样的感觉</li>
+        <li><span class="date">2025-10-01</span> 异地后的第三次见面，我去了蚌埠，我第一次做了发型，见了我们的爸爸妈妈，和他们一起吃了漂亮饭，很开心妈妈说下次师兄邀请你去他家的话，你也可以去。管子粤，这一天到底是在什么时候！！！！我每天都在邀请你[抓耳挠腮]</li>
+        <li><span class="date">2025-10-08</span> 陪你去逛了漫展，把我们两个人的门票挣回来了，然后我们很不舍得的分开了</li>
+        <li><span class="date">2025-10-18</span> 异地后的第四次见面，杨哥结婚，但是他的喜糖我都给你吃了，你说只有巧克力好吃，所以我去茂业天地给你买了巧克力和你喜欢的糖葫芦去见你，但是吃的很快，自从知道你有蛀牙之后，以后应该只能是我在的时候喂你吃巧克力了，管子粤，你不许偷吃！！！</li>
+        <li><span class="date">2025-12-04</span> 你发烧了，我旷课去太原照顾你，我们一起去了忻州古城，又像没有毕业的时候一样带你玩了一次</li>
+        <li><span class="date">2026-01-01</span> 我们第二次一起跨年，但我们是异地，上海的跨年氛围很浓厚，但你不在我真没有一丁点儿出去玩的欲望，我是在实验室加班渡过的</li>
+        <li><span class="date">2026-01-15</span> 又见面了，这次是你来上海找我，我们去迪士尼了，拍了漂亮照片，还看了烟花，吃了很多漂亮饭饭，好喜欢。唯一遗憾的是，太累了我们五天只做了一次[捂脸]</li>
+        <li><span class="date">2026-02-16</span> 今天在一起一周年了，我们在一起的每一天都有好好生活，和你在一起真的很开心，期待我们早点结婚~</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h3>照片墙</h3>
+      <div id="gallery" class="gallery"></div>
+      <p class="gallery-tip"> </p>
+    </section>
+
+
+
+<section class="section">
+  <h3>给你的情书</h3>
+
+  <!-- 大气入口：整张卡片可点击 -->
+  <button id="letterBtn" class="letter-gate" type="button" aria-label="打开情书">
+    <div class="letter-gate-inner">
+      <div class="letter-gate-kicker">To: 我的子粤大宝贝</div>
+      <div class="letter-gate-title">打开这封信</div>
+      <div class="letter-gate-sub">这里藏着我想认真告诉你的话</div>
+    </div>
+    <div class="letter-gate-glow" aria-hidden="true"></div>
+  </button>
+</section>
+
+
+    <footer class="footer">
+      <small>Made with 巫春生</small>
+    </footer>
+  </main>
+
+
+  <!-- Lightbox：点击放大（支持手机滑动/左右切换） -->
+<div id="lightbox" class="lightbox hidden" role="dialog" aria-modal="true" aria-label="图片预览">
+  <div class="lightbox-backdrop" data-close="1"></div>
+
+  <div class="lightbox-panel">
+    <button class="lb-btn lb-close" id="lbClose" aria-label="关闭">✕</button>
+    <button class="lb-btn lb-prev" id="lbPrev" aria-label="上一张">‹</button>
+    <button class="lb-btn lb-next" id="lbNext" aria-label="下一张">›</button>
+
+    <figure class="lb-figure">
+      <img id="lbImg" alt="预览图片" />
+      <figcaption id="lbCap" class="lb-cap"></figcaption>
+    </figure>
+  </div>
+</div>
+
+  <!-- 读信模式：信纸展开 -->
+  <div id="letterModal" class="letter-modal hidden" role="dialog" aria-modal="true" aria-label="情书">
+    <div class="letter-backdrop" data-close="1"></div>
+
+    <div class="letter-panel">
+      <button id="letterClose" class="lb-btn lb-close" aria-label="关闭">✕</button>
+      <button id="letterBack" class="back-btn">← 返回</button>
+
+      <div class="envelope" aria-hidden="true">
+        <div class="env-top"></div>
+        <div class="env-body"></div>
+        <div class="seal">❤</div>
+      </div>
+
+      <article id="letterSheet" class="letter-sheet">
+        <h3 class="letter-title">致我的管子粤大宝贝</h3>
+
+        <!-- 把你1000+字完整情书放这里（多段p都可以） -->
+        <p>见字如面。其实这封情书其实很早就想给你了，但我一直在想该怎么样的形式？在什么时候给你？今天正好是我们在一起的一周年纪念日，又是2025年的除夕夜，明天就是2026年了，于是选择在这个辞旧迎新的节点呈上。</p>
+        <p>还记得跨年那天晚上，我们两个面对面，你也卡点给我发的新年快乐，我有被感动到，那一瞬间我明白了原来仪式感和被在乎是这样的感受。我没有回你那些花里胡哨的漂亮话，但我内心很自然地涌起一句话：我今年一定会比去年会更爱你。</p>
+        <p>子粤大宝贝，我们以后还要在一起一辈子。未来肯定避免不了一些摩擦和小打小闹，我依旧是那句话，我绝不会因为生你的气，就在心里默默的给你“扣分”，减少对你的爱，我对你的爱只增不减。我希望我们之间，是那种“无话不说，无屁不放”的关系。我们可以坦诚到不需要任何掩饰，不管是开心的事，还是委屈的瞬间，甚至是那些最细微的想法，我们都要毫无保留地告诉对方。然后，我们一起去面对，一起解决问题，不要有任何一丝破坏爱的情绪和问题存在，我们都要慢慢变得更好。</p>
+        <p>最想对你说的是：谢谢你，选择了这个很不完美的我。回想这一年，你做了太多让我深埋心底、充满感激的事。在一起之前，你知道我妈妈患有尿毒症，这对我而言是一个很沉重却无法改变的事实，虽然我常安慰自己，这已是不幸中的万幸，但我内心深处依旧害怕你会觉得这是我们俩的负担。说实话，刚开始我一直不敢跟你表白，很大原因就是妈妈的病让我变得很不自信。你是一个很漂亮、很美好、对生活充满向往的女孩，妈妈的病让我害怕你会心存芥蒂，怕叔叔阿姨心存芥蒂。毕竟换位思考之后，谁不希望自己的女儿在未来轻松顺遂呢？但不知为何，你还是打消了我所有的顾虑，坚定选择了我。</p>
+        <p>让我倍感温暖的还有一件事，你暑假瞒着妈妈来找我，陪我和妈妈一起去医院做透析，你没有表现出一丝一毫的排斥或嫌弃。我原本觉得“让客人第一次来家里就陪同去医院”这件事本身很不妥，但转念一间，我又坚定地告诉自己：你早就不是别人了，你是我最亲近的爱人。从那一刻起，我更加坚定地要陪着你走过今后的每一天。</p>
+        <p>宝贝，未来的路很长，我不知道我们的人生剧本是怎么样的，但我不说大话，我会脚踏实地地去努力、去拼搏，给你最幸福的生活，做世界上最漂亮最幸福的公主，是那种永远都把草莓尖尖留给你吃的公主。我会永远守护你、支持你。我相信爱不仅是誓言，是让我们彼此都变得更优秀、变得更好的魔法。</p>
+        <p>子粤宝贝，你是我的开心果，是我的活宝。我喜欢看你蹦蹦跳跳，喜欢看你笨拙跳舞的样子，你这样的傻乐总能感染我，让我觉得我现在的生活已经足够美好。就像歌词里写的：“我想念与你整晚聊天不想晚安的爱恋”，和你在一起，我们总说不完的话，道不尽的情。只要我们在一起，生活就是热气腾腾的。</p>
+        <p>宝宝，期待我们能早点结婚，早点拥有属于我们自己的家，无论大无论小，无论贫穷无论富有，我都会始终如一的站在你身边，我会用实际行动向全世界证明，我一定依然如以往一样爱你，甚至比以往更爱你。好了宝贝，祝你新年快乐，也祝我早日有底气跟小马摊牌，从她手中把你风风光光地娶回来，亲亲亲！</p>
+        <p>一周年快乐，我的爱人。</p>
+        <p class="sign">—— ❤️你的，巫春生</p>
+        <p class="sign">   2026年2月15除夕</p>
+        <div class="letter-stamp" aria-hidden="true">LOVE</div>
+        <!-- <div class="letter-signature">❤️ 永远爱你的巫春生</div> -->
+      </article>
+    </div>
+  </div>
+
+  <!-- 音频：不要 autoplay，等用户点击后再播放 -->
+  <audio id="bgm" src="audio/bulingbuling.mp3" loop></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
